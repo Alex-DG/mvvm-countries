@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     lateinit var viewModel: ListViewModel
-    private val countriesAdpater = CountryListAdpater(arrayListOf())
+    private val countriesAdapter = CountryListAdapter(arrayListOf())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         countriesList.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = countriesAdpater
+            adapter = countriesAdapter
         }
 
         observeViewModel()
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun observeViewModel() {
         viewModel.countries.observe(this, Observer { countries ->
-            countries?.let { countriesAdpater.updateCountries(it) }
+            countries?.let { countriesAdapter.updateCountries(it) }
         })
 
         viewModel.countryLoadError.observe(
