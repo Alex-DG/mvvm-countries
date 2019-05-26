@@ -6,7 +6,7 @@ data class Country(
     @SerializedName("name")
     val countryName: String?,
     @SerializedName("capital")
-    val captial: String?,
+    val capital: String?,
     @SerializedName("flagPNG")
-    val falg: String?
+    val flag: String?
 )
