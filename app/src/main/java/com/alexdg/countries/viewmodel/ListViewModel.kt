@@ -12,7 +12,8 @@ import io.reactivex.schedulers.Schedulers
 
 class ListViewModel: ViewModel() {
 
-    private val countriesService = CountriesService()
+    val countriesService = CountriesService()
+
     private val disposable = CompositeDisposable()
 
     val countries = MutableLiveData<List<Country>>()
